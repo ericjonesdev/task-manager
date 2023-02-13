@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Task Manager</title>
 </head>
 <body>
-    Hello World!
+    
+    <header>
+        <!-- top navbar -->
+        <nav class="light-blue darken-1">
+            <div class="nav-wrapper">
+              <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="">New Task</a></li>
+                <li><a href="">Categories</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <!-- mobile sidenav-->
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="">New Task</a></li>
+            <li><a href="">Categories</a></li>
+          </ul>
+    </header>
+
+    <main>
+        {% block content%}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer blue darken-3">
+        <div class="footer-copyright">
+          <div class="container">
+          For educational purposes only
+          <a class="white-text text-lighten-4 right" href="https://ericjonesdev.github.io/eric-jones-software-developer/index.html">&copy; 2023 Eric Nathaniel Jones</a>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+
 </body>
 </html>
